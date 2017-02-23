@@ -98,6 +98,10 @@ main img {
     color: #aa0000;
 }
 
+.udsolgt {
+    display: none;
+}
+
 .pris {
     color: #aa0000;
 }
