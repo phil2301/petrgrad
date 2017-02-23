@@ -2,6 +2,7 @@
 body {
     color: #fff;
     margin: 0 auto;
+    background-color: #fffeee;
 }
 
 /* HEADER */
@@ -92,6 +93,7 @@ main img {
 
 .ret {
     margin-top: 15px;
+    min-height: 350px;
 }
 
 .udsolgttekst {

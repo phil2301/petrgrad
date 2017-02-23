@@ -45,6 +45,27 @@ function visProdukt (produkt) {
         klon.querySelector(".pris").classList.add("rabat");
     }
 
+    // tilføj produkt-id til modalknap
+    klon.querySelector(".modalknap").dataset.produkt = produkt.id;
+
+    // registrer klik på modalknap
+    klon.querySelector(".modalknap").addEventListener("click", modalKnapKlik)
+
     // append klon til .produkt_liste
     document.querySelector(".produktliste").appendChild(klon);
+}
+
+
+function modalKnapKlik (event) {
+    console.log("knapklik", event);
+
+    // find det produkt id, hvis knap derr blev trykket på
+    var produktId = event.target.dataset.produkt;
+    console.log("klik på produkt: " , produktId);
+
+    $.getJSON("http://petlatkea.dk/2017/dui/api/product?callback=?", {id: produktId}, visModalProdukt);
+}
+
+function visModalProdukt(produkt) {
+    console.log("vis modal for ", produkt)
 }

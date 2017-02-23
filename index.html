@@ -71,6 +71,8 @@
     </div>
     <!-- FILTRERING OG SORTERING SLUT -->
 
+
+
     <!-- FORRETER -->
     <main class="container">
        <div class="row">
@@ -91,11 +93,32 @@
                     <h4 class="udsolgttekst">Denne ret er desværre udsolgt</h4>
                     <h4 class="rabatpris">Pris: <span class="data_rabatpris">DATA_RABATPRIS</span> kr.</h4> <!-- skal kun vises ved rabat -->
                     <!-- SKAL KUN VISES, NÅR ET PRODUKT ER UDSOLGT -->
-                    <button class="btn btn-primary">Detaljer</button>
+                    <button type="button" class="btn btn-primary modalknap" data-toggle="modal" data-target="#myModal"> Detaljer </button>
                 </div>
             </template>
 
         </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
     </main>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
