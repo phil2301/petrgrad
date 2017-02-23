@@ -94,4 +94,16 @@ main img {
     margin-top: 15px;
 }
 
+.udsolgttekst {
+    color: #aa0000;
+}
+
+.pris {
+    color: #aa0000;
+}
+
+.rabatpris {
+    color: #00aa00;
+}
+
 /**** FOOTER ****/
