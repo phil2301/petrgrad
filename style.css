@@ -110,4 +110,8 @@ main img {
     color: #00aa00;
 }
 
+.rabat {
+    text-decoration: line-through;
+}
+
 /**** FOOTER ****/
