@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Petrograd</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">Restaurant Petrograd</a>
+            </div>
+            <ul class="nav navbar-nav">
+
+                <li class="active"><a href="#">Menu</a></li>
+                <li><a href="#">Bestilling</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+
+
+
+
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Søg</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="splashImg">
+        <div class="container col-xs-8  logo"></div>
+        <div class="container">
+            <div class="farve-overlay">
+                <h2>Restaurant Petrograd</h2></div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- MAIN CONTENT -->
+
+
+    <div class="container content">
+        <div class="row sortering">
+            <div class="col-sm-4 sorterVarer">
+                <ul>
+                    <li>Sorter:</li>
+                    <li><a href="#">Udsolgt</a></li>
+                    <li><a href="#">Rabat</a></li>
+                    <li><a href="#">Drikkevarer</a></li>
+                    <li><a href="#">Vegetarer</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-offset-6 col-sm-2 sorterPris">
+                <select name="sorter" id="">
+                    <option value="Billigst">Billigst</option>
+                    <option value="Dyreste">Dyreste</option>
+                    <option value="Populær">Populær</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="row">
+
+        </div>
+    </main>
+
+
+    <main class="container">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src="imgs/small/bondeplatte-sm.jpg" class="img-responsive">
+                <h3>Zygroffs Bondeplatte</h3>
+
+                <p>
+                    Pris 109kr
+                </p>
+
+                <button class="btn btn-primary">Detaljer</button>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src="imgs/small/kaviarpandekager-sm.jpg" class="img-responsive">
+                <h3>Pandekager med kaviar</h3>
+
+                <p>
+                    Pris 79kr
+                </p>
+
+                <button class="btn btn-primary">Detaljer</button>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src="imgs/small/mos-rogn-sm.jpg" class="img-responsive">
+                <h3>Kæmperogn med kartoffelmos</h3>
+
+                <p>
+                    Pris 89kr rabat 20%
+                </p>
+
+                <p>ny pris 71kr</p>
+
+                <button class="btn btn-primary">Detaljer</button>
+            </div>
+        </div>
+
+    </main>
+
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

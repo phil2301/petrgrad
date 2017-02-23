@@ -1,0 +1,112 @@
+.navbar-default {
+    background-color: #790808;
+    border: none;
+    border-radius: 0px;
+}
+
+.navbar {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-default .navbar-nav>.active>a {
+    background-color: #340000;
+    color: white;
+}
+
+.navbar-default .navbar-nav>.active>a:visited {
+    background-color: #340000;
+    color: white;
+}
+
+.navbar-default .navbar-nav>.active>a:hover {
+    background-color: rgba(52, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: #898989;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #898989;
+}
+
+.splashImg {
+    background-image: url(food-pot-kitchen-cooking.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 560px;
+}
+
+.logo {
+    background-image: url(logo/logo3.svg);
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.farve-overlay {
+    margin-top: 510px;
+    height: 50px;
+    background-color: #790808;
+}
+
+.farve-overlay h2 {
+    text-align: center;
+    padding-top: 7px;
+    color: #fff;
+}
+
+.content {
+    color: #000;
+}
+
+.sorterVarer {
+    margin-top: 10px;
+}
+
+.sorterPris {
+    margin-top: 10px;
+}
+
+.sortering ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sortering ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.sortering select {
+    float: right;
+}
+
+.sortering {
+    margin-top: 2px;
+}
+
+main {
+    margin-top: 20px;
+    color: #000;
+}
+
+main img {
+    border-radius: 10px;
+    max-height: 200px;
+}
+
+
+/**** FOOTER ****/
