@@ -1,5 +1,15 @@
-/*
-var lars = produkt.billeder;
+window.addEventListener("load", sidenVises);
 
-klon.querySelector(".data_billede").src = "imgs/small/"+lars+"-sm.jpg";
-*/
+function sidenVises() {
+    console.log("Siden vises");
+    visProdukt();
+}
+
+function visProdukt () {
+    //Vis produkt_template
+    var klon = document.querySelector("#produkt_template").content.cloneNode(true);
+    // indsæt data i klon
+
+    // append klon til .produkt_liste
+    document.querySelector(".produktliste").appendChild(klon);
+}
