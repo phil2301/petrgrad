@@ -54,10 +54,10 @@
             <div class="col-sm-4">
                 <ul>
                     <li>Sorter:</li>
-                    <li><a href="#">Udsolgt</a></li>
-                    <li><a href="#">Rabat</a></li>
-                    <li><a href="#">Drikkevarer</a></li>
-                    <li><a href="#">Vegetarer</a></li>
+                    <li class="filterknap_vegetar"><a href="#">Vegetar</a></li>
+                    <li class="filterknap_udsolgt"><a href="#">Udsolgt</a></li>
+                    <li class="filterknap_tilbud"><a href="#">Tilbud</a></li>
+                    <li class="filterknap_alkohol"><a href="#">Alkohol</a></li>
                 </ul>
             </div>
             <div class="col-sm-offset-6 col-sm-2">
@@ -86,9 +86,10 @@
 
            <!-- FORRET 1 -->
             <template id="produkt_template">
-                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 ret">
-                    <a href="#"><img src="images/small/bondeplatte-sm.jpg" class="img-responsive data_billede"></a>
+                <div class="col-xs-6 col-sm-4 produkt">
+                    <img src="images/small/bondeplatte-sm.jpg" class="img-responsive data_billede">
                     <h3 class="data_navn">DATA_NAVN</h3>
+                    <p class="data_kortbeskrivelse">DATA_KORTBESKRIVELSE</p>
                     <h4 class="pris">Pris: <span class="data_pris">DATA_PRIS</span> kr.</h4> <!-- TODO: SÆT UDSOLGT CLASS VED UDSOLGT -->
                     <h4 class="udsolgttekst">Denne ret er desværre udsolgt</h4>
                     <h4 class="rabatpris">Pris: <span class="data_rabatpris">DATA_RABATPRIS</span> kr.</h4> <!-- skal kun vises ved rabat -->
@@ -99,25 +100,44 @@
 
         </div>
 
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                </div>
+              </div>
+            </div>
+             <!-- Det er her min modal_template skal være -->
+             <template id="modal_template">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel"><span class="data_navn">DATA_NAVN</span></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                ...
+                <img src="images/medium/baltiskbondesuppe-sm.jpg" alt="" class="img-responsive data_billede modalbillede">
+                <article>
+                    <h4 class="pris">Pris: <span class="data_pris">DATA_PRIS</span>,-</h4>
+                    <h4 class="rabat">Pris: <span class="data_rabatpris">DATA_RABATPRIS</span>,-</h4>
+                    <p class="data_langbeskrivelse">DATA_LANGBESKRIVELSE</p>
+                    <div class="ekstra_og_relaterede">
+                        <h5>Oprindelse: <span class="data_oprindelsesregion">DATA_OPRINDELSESREGION</span></h5>
+                        <h5>Allergi: <span class="data_allergener">DATA_ALLERGENER</span> </h5>
+                        <h5 class="data_alkoholprocent">DATA_ALKOHOLPROCENT</h5>
+                        <h5 class="data_stjerner">DATA_STJERNER</h5> </div>
+                    <div class="ekstra_og_pris">
+                        <section class="ekstrainfo"></section>
+                    </div>
+                </article>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
               </div>
-            </div>
-          </div>
-        </div>
+             </template>
+
+    <!-- HOVEDRETTER -->
+
+    <!-- DESSERT -->
 
     </main>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

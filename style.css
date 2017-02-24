@@ -91,9 +91,9 @@ main img {
     max-height: 200px;
 }
 
-.ret {
+.produkt {
     margin-top: 15px;
-    min-height: 350px;
+    min-height: 400px;
 }
 
 .udsolgttekst {
@@ -114,6 +114,10 @@ main img {
 
 .rabat {
     text-decoration: line-through;
+}
+
+.modalbillede {
+    max-height: 500px;
 }
 
 /**** FOOTER ****/
