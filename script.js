@@ -42,6 +42,15 @@ function filtrerAlkohol (event){
 }
 
 
+// SORTERINGSFUNKTION
+
+// billigst -> dyreste
+
+
+// dyreste -> billigste
+
+
+
 function visProduktListe ( listen ) {
     console.log(listen);
 
@@ -76,10 +85,13 @@ function visProdukt (produkt) {
     klon.querySelector(".data_pris").innerHTML = produkt.pris;
 
     var rabatpris = Math.ceil( produkt.pris - (produkt.pris*produkt.rabatsats/100 ) );
+
     klon.querySelector(".data_rabatpris").innerHTML = rabatpris;
 
     klon.querySelector(".data_billede").src = "/images/small/"+produkt.billede+"-sm.jpg";
 
+
+    // UDSOLGT || !=UDSOLGT
     if ( produkt.udsolgt == false ) {
         // produktet er ikke udsolgt
         // udsolgttekst skal fjernes
@@ -91,8 +103,8 @@ function visProdukt (produkt) {
         klon.querySelector(".pris").classList.add("udsolgt");
     }
 
-    if ( produkt.udsolgt == true || produkt.rabatsats == 0 ) {
-        //der er ikke rabat
+    // hvis der er rabat, skal klassen "rabat" tilføjes
+    if ( produkt.rabatsats == 0 ) {
         var rabatpris = klon.querySelector(".rabatpris");
         rabatpris.parentNode.removeChild(rabatpris);
     } else {
@@ -111,9 +123,7 @@ function visProdukt (produkt) {
     // hvis kategori var forret, append til forretliste
     // hvis kategori var hovedret, append til hovedretliste
 
-
 }
-
 
 function modalKnapKlik (event) {
     console.log("knapklik", event);
@@ -135,6 +145,10 @@ function visModalProdukt(produkt) {
     // find modal_template - klon den
     var klon = document.querySelector("#modal_template").content.cloneNode(true);
 
+    if (produkt.rabatsats){
+        klon.querySelector(".pris").classList.add("rabat");
+    }
+
     // put data i klonen
     klon.querySelector(".data_navn").innerHTML = produkt.navn;
 
@@ -143,7 +157,7 @@ function visModalProdukt(produkt) {
     klon.querySelector(".data_pris").innerHTML = produkt.pris;
 
     // RABATPRIS
-    klon.querySelector(".data_rabatpris").innerHTML = produkt.rabatsats;
+    klon.querySelector(".data_rabatpris").innerHTML =  Math.ceil( produkt.pris - (produkt.pris*produkt.rabatsats/100 ) );
 
     // BILLEDE
     klon.querySelector(".data_billede").src = "/images/medium/"+produkt.billede+"-md.jpg";
