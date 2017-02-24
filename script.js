@@ -6,11 +6,16 @@ function sidenVises() {
     // læs produktliste
     $.getJSON("http://petlatkea.dk/2017/dui/api/productlist?callback=?", visProduktListe);
 
-    document.querySelector(".filterknap_vegetar").addEventListener("click", filtrerVegetar);
-
-
-
 }
+
+//vælger alle elementer med klassen "filterknap_vegetar". Der er tilføjet en eventlistener, der lytter til hver gang, der bliver udført et klik, så den vil eksekvere funktionen "filtrerVegetar"
+document.querySelector(".filterknap_vegetar").addEventListener("click", filtrerVegetar);
+
+document.querySelector(".filterknap_tilbud").addEventListener("click", filterTilbud);
+
+document.querySelector(".filterknap_alkohol").addEventListener("click", filtrerAlkohol);
+
+// FILTRERINGSFUNKTIONER
 
 function filtrerVegetar (event) {
     console.log("Klik på vegetar-filter");
@@ -21,6 +26,20 @@ function filtrerVegetar (event) {
     event.preventDefault();
 }
 
+function filterTilbud (event) {
+    console.log("Klik på tilbud-filter");
+    // find alle produkter, der ikke er på tilbud
+    var liste = document.querySelectorAll(".produkt:not(.tilbud)");
+    liste.forEach ( produkt => produkt.classList.toggle("hide"));
+    event.preventDefault();
+}
+
+function filtrerAlkohol (event){
+    console.log("Klik på alkohol-filter");
+    var liste = document.querySelectorAll(".produkt:not(.alkohol)");
+    liste.forEach ( produkt => produkt.classList.toggle("hide"));
+    event.preventDefault();
+}
 
 
 function visProduktListe ( listen ) {
@@ -36,11 +55,19 @@ function visProduktListe ( listen ) {
 
 function visProdukt (produkt) {
     console.log(produkt);
+
     //Vis produkt_template
     var klon = document.querySelector("#produkt_template").content.cloneNode(true);
 
+    // TILFØJER EN KLASSE, HVIS DEN ER VEGETAR ELLER ANDET
     if ( produkt.vegetar ){
         klon.querySelector(".produkt").classList.add("vegetar");
+    }
+    if (produkt.rabatsats){
+        klon.querySelector(".produkt").classList.add("tilbud");
+    }
+    if (produkt.alkoholprocent){
+        klon.querySelector(".produkt").classList.add("alkohol");
     }
 
     // indsæt data i klon
@@ -79,17 +106,9 @@ function visProdukt (produkt) {
     klon.querySelector(".modalknap").addEventListener("click", modalKnapKlik);
 
     // append klon til .produkt_liste
-    //document.querySelector(".produktliste").appendChild(klon);
+    document.querySelector(".produktliste").appendChild(klon);
 
     // hvis kategori var forret, append til forretliste
-    if (produkt.kategori == "forretter") {
-        document.querySelector(".forretliste").appendChild(klon);
-    } else if (produkt.kategori == "hovedretter"){
-        // hvis kategori var forret, append til hovedretliste
-        document.querySelector(".hovedretliste").appendChild(klon);
-    } else if (produkt.kategori == "dessert"){
-        document.querySelector(".dessertlsite").appendChild(klon);
-    }
     // hvis kategori var hovedret, append til hovedretliste
 
 
@@ -124,14 +143,27 @@ function visModalProdukt(produkt) {
     klon.querySelector(".data_pris").innerHTML = produkt.pris;
 
     // RABATPRIS
-
-
+    klon.querySelector(".data_rabatpris").innerHTML = produkt.rabatsats;
 
     // BILLEDE
     klon.querySelector(".data_billede").src = "/images/medium/"+produkt.billede+"-md.jpg";
 
     // LANG BESKRIVELSE
     klon.querySelector(".data_langbeskrivelse").innerHTML = produkt.langbeskrivelse;
+
+    // OPRINDELSE
+    klon.querySelector(".data_oprindelsesregion").innerHTML = produkt.oprindelsesregion;
+
+    // ALLERGIER
+    klon.querySelector(".data_allergener").innerHTML = produkt.allergener;
+
+
+    // ALKOHOLPROCENT
+    klon.querySelector(".data_alkoholprocent").innerHTML = produkt.alkoholprocent;
+
+
+    // STJERNER
+    klon.querySelector(".data_stjerner").innerHTML = produkt.stjerner;
 
     // PRIS
     // sletter det der stod i modal-content
