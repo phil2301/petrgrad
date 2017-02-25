@@ -15,6 +15,11 @@ document.querySelector(".filterknap_tilbud").addEventListener("click", filterTil
 
 document.querySelector(".filterknap_alkohol").addEventListener("click", filtrerAlkohol);
 
+//SORTER FUNKTIONER
+/*document.querySelector(".sorter_billigste").addEventListener("click", sorterBilligste);
+
+document.querySelector(".sorter_dyreste").addEventListener("click", sorterDyreste);*/
+
 // FILTRERINGSFUNKTIONER
 
 function filtrerVegetar (event) {
@@ -45,10 +50,14 @@ function filtrerAlkohol (event){
 // SORTERINGSFUNKTION
 
 // billigst -> dyreste
-
+function sorterBilligste (event) {
+    console.log("Klik på sorter efter billigste -> dyreste");
+}
 
 // dyreste -> billigste
-
+function sorterDyreste(event){
+    console.log("Klik på sorter efter dyreste -> billigste");
+}
 
 
 function visProduktListe ( listen ) {
@@ -57,6 +66,8 @@ function visProduktListe ( listen ) {
     // filtrer udsolgte produkter fra...
     // For hvert produkt sender den produktet ind i beregningen og returnerer
     listen = listen.filter ( produkt => !produkt.udsolgt );
+
+
 
     listen.forEach(visProdukt);
 }
@@ -76,7 +87,7 @@ function visProdukt (produkt) {
         klon.querySelector(".produkt").classList.add("tilbud");
     }
     if (produkt.alkoholprocent){
-        klon.querySelector(".produkt").classList.add("alkohol");
+      klon.querySelector(".produkt").classList.add("alkohol");
     }
 
     // indsæt data i klon
@@ -90,8 +101,6 @@ function visProdukt (produkt) {
 
     klon.querySelector(".data_billede").src = "/images/small/"+produkt.billede+"-sm.jpg";
 
-
-    // UDSOLGT || !=UDSOLGT
     if ( produkt.udsolgt == false ) {
         // produktet er ikke udsolgt
         // udsolgttekst skal fjernes
@@ -118,7 +127,25 @@ function visProdukt (produkt) {
     klon.querySelector(".modalknap").addEventListener("click", modalKnapKlik);
 
     // append klon til .produkt_liste
-    document.querySelector(".produktliste").appendChild(klon);
+
+    if(produkt.kategori == "forretter"){
+
+        document.querySelector(".forretter").appendChild(klon);
+
+    } else if (produkt.kategori == "hovedretter"){
+
+        document.querySelector(".hovedretter").appendChild(klon);
+
+    } else if (produkt.kategori == "desserter"){
+
+        document.querySelector(".desserter").appendChild(klon);
+
+    } else {
+
+        document.querySelector(".drikke_og_sideorders").appendChild(klon);
+
+    }
+
 
     // hvis kategori var forret, append til forretliste
     // hvis kategori var hovedret, append til hovedretliste
@@ -145,7 +172,7 @@ function visModalProdukt(produkt) {
     // find modal_template - klon den
     var klon = document.querySelector("#modal_template").content.cloneNode(true);
 
-    if (produkt.rabatsats){
+    if ( produkt.rabatsats ) {
         klon.querySelector(".pris").classList.add("rabat");
     }
 
@@ -179,7 +206,6 @@ function visModalProdukt(produkt) {
     // STJERNER
     klon.querySelector(".data_stjerner").innerHTML = produkt.stjerner;
 
-    // PRIS
     // sletter det der stod i modal-content
     document.querySelector(".modal-content").innerHTML = "";
 

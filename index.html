@@ -13,7 +13,7 @@
     <!-- HEADER -->
 
     <header>
-        <div class="navbar navbar-default navbar-inverse" id="navigation" role="navigation">
+        <div class="navbar navbar-default navbar-inverse navbar-fixed-top" id="navigation" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" data-toggle="collapse" data-target="#example" class="navbar-toggle">
@@ -61,9 +61,8 @@
             </div>
             <div class="col-sm-offset-6 col-sm-2">
                 <select name="sorter" id="">
-                    <option value="Billigste">Billigste</option>
-                    <option value="Dyreste">Dyreste</option>
-                    <option value="Populær">Populær</option>
+                    <option value="Billigste">billigste -> dyreste</option>
+                    <option value="Dyreste">dyreste -> billigste</option>
                 </select>
             </div>
         </div>
@@ -79,12 +78,50 @@
                <h1>Forretter</h1>
            </div>
        </div>
-        <div class="row produktliste">
+        <div class="row forretter">
             <!-- her skal produkter lægges ind -->
 
+        </div>
 
-           <!-- FORRET 1 -->
-            <template id="produkt_template">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                </div>
+              </div>
+            </div>
+
+    <!-- HOVEDRETTER -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Hovedretter</h1>
+        </div>
+    </div>
+    <div class="row hovedretter">
+
+    </div>
+
+    <!-- DESSERT -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Dessert</h1>
+        </div>
+    </div>
+    <div class="row desserter">
+
+    </div>
+
+    <!-- DRIKKE OG SIDEORDERS -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Drikke og sideordre</h1>
+        </div>
+    </div>
+    <div class="row drikke_og_sideorders">
+
+    </div>
+
+    <!-- TEMPLATES --><!-- PRODUKTLISTE TEMPLATE -->
+    <template id="produkt_template">
                 <div class="col-xs-6 col-sm-4 produkt">
                     <img src="images/small/bondeplatte-sm.jpg" class="img-responsive data_billede">
                     <h3 class="data_navn">DATA_NAVN</h3>
@@ -96,17 +133,8 @@
                 </div>
             </template>
 
-        </div>
-
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                </div>
-              </div>
-            </div>
-
-             <!-- MODAL TEMPLATE -->
-             <template id="modal_template">
+    <!-- MODAL TEMPLATE -->
+    <template id="modal_template">
               <div class="modal-header">
                 <h3 class="modal-title" id="exampleModalLabel"><span class="data_navn">DATA_NAVN</span></h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -124,9 +152,16 @@
                         <h5>Oprindelse: <span class="data_oprindelsesregion">DATA_OPRINDELSESREGION</span></h5>
                         <h5>Allergi: <span class="data_allergener">DATA_ALLERGENER</span> </h5>
                         <h5>Alkoholprocent: <span class="data_alkoholprocent">DATA_ALKOHOLPROCENT</span> </h5>
-                        <h5>Stjerner: <span class="data_stjerner">DATA_STJERNER</span> </h5> </div>
+                        <h5>Stjerner: <span class="data_stjerner">DATA_STJERNER</span> </h5>
+                        <h5>Bedst som: <span class="data_kategori">DATA_KATEGORI</span></h5>
+                    </div><hr>
                     <div class="ekstra_og_pris">
-                        <section class="ekstrainfo"></section>
+                        <section class="ekstrainfo">
+                            <div class="relaterede">
+                                <h4>Relaterede produkter:</h4>
+                                <p class="data_relaterede"></p>
+                            </div>
+                        </section>
                     </div>
                 </article>
               </div>
@@ -134,10 +169,6 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
              </template>
-
-    <!-- HOVEDRETTER -->
-
-    <!-- DESSERT -->
 
     </main>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
