@@ -67,8 +67,6 @@ function visProduktListe ( listen ) {
     // For hvert produkt sender den produktet ind i beregningen og returnerer
     listen = listen.filter ( produkt => !produkt.udsolgt );
 
-
-
     listen.forEach(visProdukt);
 }
 
@@ -174,6 +172,8 @@ function visModalProdukt(produkt) {
 
     if ( produkt.rabatsats ) {
         klon.querySelector(".pris").classList.add("rabat");
+    } else if (produkt.rabatsats == false) {
+        klon.querySelector(".rabatpris").classList.add("ingenrabat");
     }
 
     // put data i klonen
