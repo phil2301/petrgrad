@@ -2,7 +2,7 @@
 body {
     color: #fff;
     margin: 0 auto;
-    background-color: #fffeee;
+    background-color: #fff;
 }
 
 /* HEADER */
@@ -23,6 +23,7 @@ body {
 
 .navbar-inverse .navbar-nav>li>a {
     color: #fff;
+    transition: .25s, background-color;
 }
 
 .navbar-inverse .navbar-nav>li>a:hover {
@@ -41,22 +42,40 @@ body {
 /**** BODY ****/
 .splash {
     min-height: 600px;
-    background-image: url("images/food-pot-kitchen-cooking.jpg");
+    background-image: url("images/splash.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 100%;
 }
 
+
+.logo {
+    width: 250px;
+    height: 250px;
+    margin: 150px auto 0;
+    background-image: url("images/logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 1.1s;
+    z-index: 10;
+}
+
+.logo:hover {
+    -ms-transform: scale(1.25,1.25);
+    -webkit-transform: scale(1.25,1.25);
+    transform: scale(1.25,1.25);
+}
+
 .farve-overlay {
-    margin-top: 550px;
-    height: 50px;
+    margin-top: 150px;
+    height: 60px;
     background-color: #A80000;
 }
 
 .farve-overlay h2 {
     text-align: center;
-    padding-top: 7px;
+    padding-top: 12px;
     color: #fff;
 }
 
@@ -75,7 +94,7 @@ body {
     margin-right: 10px;
 }
 
-.sortering select {
+.sortering .dropdown {
     float: right;
 }
 
@@ -86,14 +105,32 @@ body {
 main {
     color: #000;
 }
-main img {
-    border-radius: 15px;
+
+.menuer h1 {
+    text-align: center;
+    margin: 5px 0 10px;
+}
+
+hr {
+    border: .5px solid #aaa;
+}
+
+/** PRODUKTER **/
+
+.produkt img {
     max-height: 200px;
+    transition: 1s;
+}
+
+.produkt img:hover {
+    -ms-transform: scale(1.05,1.05);
+    -webkit-transform: scale(1.05,1.05);
+    transform: scale(1.05,1.05);
 }
 
 .produkt {
     margin-top: 15px;
-    min-height: 450px;
+    min-height: 400px;
 }
 
 .udsolgttekst {
@@ -126,3 +163,11 @@ main img {
 }
 
 /**** FOOTER ****/
+footer {
+    margin-top: 50px;
+    background-color: #A80000;
+    text-align: center;
+}
+footer h3 {
+    margin: 20px 0;
+}

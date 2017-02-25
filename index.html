@@ -13,7 +13,7 @@
     <!-- HEADER -->
 
     <header>
-        <div class="navbar navbar-default navbar-inverse navbar-fixed-top" id="navigation" role="navigation">
+        <div class="navbar navbar-default navbar-inverse" id="navigation" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" data-toggle="collapse" data-target="#example" class="navbar-toggle">
@@ -43,8 +43,10 @@
     <!-- MAIN CONTENT -->
     <div class="splash">
         <div class="container">
+           <div class="logo"></div>
             <div class="farve-overlay">
-                <h2>Restaurant Petrograd</h2> </div>
+                <h2>Restaurant Petrograd</h2>
+            </div>
         </div>
     </div>
 
@@ -53,17 +55,23 @@
         <div class="row sortering">
             <div class="col-sm-4">
                 <ul>
-                    <li>Sorter:</li>
+                    <li>Filtrér:</li>
                     <li class="filterknap_vegetar"><a href="#">Vegetar</a></li>
                     <li class="filterknap_tilbud"><a href="#">Tilbud</a></li>
                     <li class="filterknap_alkohol"><a href="#">Alkohol</a></li>
                 </ul>
             </div>
-            <div class="col-sm-offset-6 col-sm-2">
-                <select name="sorter" id="">
-                    <option value="Billigste">billigste -> dyreste</option>
-                    <option value="Dyreste">dyreste -> billigste</option>
-                </select>
+            <div class="col-sm-offset-6 col-sm-2" >
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Sorter
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li class="sorter_billigste"><a href="#">Billigste -> Dyreste</a></li>
+                    <li class="sorter_dyreste"><a href="#">Dyreste -> Billigste</a></li>
+                  </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -74,14 +82,11 @@
     <!-- FORRETER -->
     <main class="container">
        <div class="row">
-           <div class="col-sm-12">
+           <div class="col-sm-12 menuer">
                <h1>Forretter</h1>
            </div>
        </div>
-        <div class="row forretter">
-            <!-- her skal produkter lægges ind -->
-
-        </div>
+        <div class="row forretter"></div><hr>
 
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
@@ -92,46 +97,40 @@
 
     <!-- HOVEDRETTER -->
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 menuer">
             <h1>Hovedretter</h1>
         </div>
     </div>
-    <div class="row hovedretter">
-
-    </div>
+    <div class="row hovedretter"></div><hr>
 
     <!-- DESSERT -->
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 menuer">
             <h1>Dessert</h1>
         </div>
     </div>
-    <div class="row desserter">
-
-    </div>
+    <div class="row desserter"></div><hr>
 
     <!-- DRIKKE OG SIDEORDERS -->
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 menuer">
             <h1>Drikke og sideordre</h1>
         </div>
     </div>
-    <div class="row drikke_og_sideorders">
-
-    </div>
+    <div class="row drikke_og_sideorders"></div>
 
     <!-- TEMPLATES --><!-- PRODUKTLISTE TEMPLATE -->
     <template id="produkt_template">
-                <div class="col-xs-6 col-sm-4 produkt">
-                    <img src="images/small/bondeplatte-sm.jpg" class="img-responsive data_billede">
-                    <h3 class="data_navn">DATA_NAVN</h3>
-                    <p class="data_kortbeskrivelse">DATA_KORTBESKRIVELSE</p>
-                    <h4 class="pris">Pris: <span class="data_pris">DATA_PRIS</span> kr.</h4>
-                    <h4 class="udsolgttekst">Denne ret er desværre udsolgt</h4>
-                    <h4 class="rabatpris">Pris: <span class="data_rabatpris">DATA_RABATPRIS</span> kr.</h4>
-                    <button type="button" class="btn btn-primary modalknap" data-toggle="modal" data-target="#myModal"> Detaljer </button>
-                </div>
-            </template>
+        <div class="col-xs-6 col-sm-4 produkt">
+            <img src="images/small/bondeplatte-sm.jpg" class="img-responsive data_billede">
+            <h3 class="data_navn">DATA_NAVN</h3>
+            <p class="data_kortbeskrivelse">DATA_KORTBESKRIVELSE</p>
+            <h4 class="pris">Pris: <span class="data_pris">DATA_PRIS</span> kr.</h4>
+            <h4 class="udsolgttekst">Denne ret er desværre udsolgt</h4>
+            <h4 class="rabatpris">Pris: <span class="data_rabatpris">DATA_RABATPRIS</span> kr.</h4>
+            <button type="button" class="btn btn-primary modalknap" data-toggle="modal" data-target="#myModal"> Detaljer </button>
+        </div>
+    </template>
 
     <!-- MODAL TEMPLATE -->
     <template id="modal_template">
@@ -168,8 +167,14 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
              </template>
-
-    </main>
+        </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <h3 class="align-center">Restaurant Petrograd</h3>
+            </div>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
